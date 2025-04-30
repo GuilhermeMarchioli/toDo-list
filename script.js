@@ -1,7 +1,7 @@
 // Variáveis
 var tarefas = []
 var msg = document.getElementById('msg')
-msg.innerText ='Tarefa adicionada com sucesso'
+msg.innerText =''
 
 var inputTarefa = document.getElementById('inputTarefa')
 var lista = document.getElementById('lista')
@@ -11,13 +11,14 @@ var lista = document.getElementById('lista')
 function adicionarTarefa() {
     let tarefa = inputTarefa.value.trim();
 
-    if(tarefa < 3 ) {
+    if(tarefa.length < 3 ) {
         msg.style.color = "darkRed"
         msg.innerText = "O item não foi adicionado a lista"
         window.alert('É necessário pelo menos 3 caracteres para ser adicionado a lista.')
     } else {
         tarefas.push(tarefa)
         renderizarTarefas()
+        msg.innerText = "Item adicionado a lista"
     }
 
     inputTarefa.value =""
@@ -32,4 +33,8 @@ function renderizarTarefas() {
         li.innerText = tarefas[i]
         lista.appendChild(li)
     }
+}
+
+function removerItem() {
+    lista.removeChild(li)
 }
