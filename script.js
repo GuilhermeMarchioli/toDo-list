@@ -35,6 +35,3 @@ function renderizarTarefas() {
     }
 }
 
-function removerItem() {
-    lista.removeChild(li)
-}
